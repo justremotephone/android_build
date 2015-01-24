@@ -49,6 +49,11 @@ ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
 
 else
     # QSD8K doesn't use QCOM_HARDWARE flag
+
+    TARGET_USES_QCOM_BSP := true
+    TARGET_GLOBAL_CFLAGS += -DQCOM_BSP
+    TARGET_GLOBAL_CPPFLAGS += -DQCOM_BSP
+
     ifneq ($(filter qsd8k,$(TARGET_BOARD_PLATFORM)),)
         QCOM_AUDIO_VARIANT := audio-caf/msm8960
     else
